@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ROFL</title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello World</title>
+    <link rel="stylesheet" type="text/css" href="{{ static_url("css/bootstrap.css") }}">
+    <style type="text/css">
+      .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s
+      }
+      .fade-enter, .fade-leave-active {
+        opacity: 0
+      }
+
+      .sidebar{
+        position: relative;
+        bottom: 0;
+        top: 0;
+        padding-top: 20%;
+        text-align: center;
+        padding-right: 40px;
+        border-right: 1px solid #333;
+        border-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .vertical-button-group{
+        display: inline-block;
+      }
+
+      .vertical-button-group > .btn {
+        display: block;
+          width: 100%;
+          max-width: 100%;
+          margin-top: 10px;
+      }
+
+      .content {
+        padding: 40px;
+        padding-top: 60px;
+        position: relative;
+        box-sizing: border-box;
+        bottom: 0;
+
+      }
+
+      @media (min-width: 768px) {
+        .sidebar{
+          position: sticky;
+          text-align: right;
+        }
+      }
+
+
+      /* Content CSS section */
+      .title{
+        margin-bottom: 20px;
+      }
+
+      .section{
+        padding-bottom: 30px;
+      }
+
+      .alignleft {
+        float: left;
+      }
+      .alignright {
+        float: right;
+      }
+    </style>
+  </head>
+</head>
+<body>
+  <div id="app" style="padding-right: calc(100% - 100vw + 17px);">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="sidebar col-md-4">
+          <h1>Costa Huang</h1>
+          <h5>strive for interesting things</h5>
+          <div class="vertical-button-group" id="test">
+            <button type="button" class="btn btn-secondary" v-on:click="to_resume"><a href="/">resume</a></button>
+            <button type="button" class="btn btn-secondary" v-on:click="to_research">research</button>
+            <button type="button" class="btn btn-secondary" v-on:click="to_math">math</button>
+            <button type="button" class="btn btn-secondary">github</button>
+          </div>
+        </div>
+        <div class="content col-md-6">
+          <div class="research-list">
+          {% for item in data %}
+            <div class="article-short" >
+              <h3 class="title"><a href="{{ item['html_address'] }}">{{ item['title'] }}</a></h3>
+              <!-- START: left align and right align at the same line -->
+              <p>{{ item['abstract'] }}</p>
+              <p>{{ item['html_address'] }}</p>
+              <hr>
+            </div>
+          {% end %}
+          </div>
+          <!-- <resume></resume> -->
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+
+</body>
+</html>
