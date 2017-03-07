@@ -1,0 +1,10 @@
+[Unit]
+Description=My Script Service
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /root/website/blog/Costa_Tornado_Blog/server.py
+
+[Install]
+WantedBy=multi-user.target

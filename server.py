@@ -1,6 +1,7 @@
 import tornado.ioloop
 import tornado.web
 import json
+import os
 
 
 settings = {
@@ -31,6 +32,8 @@ class Research_article(tornado.web.RequestHandler):
 		self.render('content/research/' + article_name + '/article.html')
 
 if __name__ == "__main__":
+
+	os.chdir(os.path.dirname(os.path.realpath(__file__)))
 	name = "article"
 	application = tornado.web.Application([
 		(r"/", MainHandler),
