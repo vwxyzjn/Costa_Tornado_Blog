@@ -18,14 +18,11 @@
 
     .sidebar{
       position: relative;
-      height: 100vh;
       bottom: 0;
       top: 0;
       padding-top: 20%;
       text-align: center;
       padding-right: 40px;
-      border-right: 1px solid #333;
-      border-color: rgba(0, 0, 0, 0.1);
     }
 
     .vertical-button-group{
@@ -50,6 +47,9 @@
 
     @media (min-width: 768px) {
       .sidebar{
+        border-right: 1px solid #333;
+        border-color: rgba(0, 0, 0, 0.1);
+        height: 100vh;
         position: sticky;
         text-align: right;
       }
