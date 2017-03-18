@@ -1,108 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>ROFL</title>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello World</title>
-    <link rel="stylesheet" type="text/css" href="{{ static_url("css/bootstrap.css") }}">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism-coy.css">
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism-solarizedlight.css">-->
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.css">-->
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism-coy.css">-->
-    <script src="{{ static_url("js/marked.min.js") }}"></script>
-    
-    <style>
-    .fade-enter-active, .fade-leave-active {
-      transition: opacity .5s
-    }
-    .fade-enter, .fade-leave-active {
-      opacity: 0
-    }
-
-    .sidebar{
-      position: relative;
-      height: 100vh;
-      bottom: 0;
-      top: 0;
-      padding-top: 20%;
-      text-align: center;
-      padding-right: 40px;
-      border-right: 1px solid #333;
-      border-color: rgba(0, 0, 0, 0.1);
-    }
-
-    .vertical-button-group{
-      display: inline-block;
-    }
-
-    .vertical-button-group > .btn {
-      display: block;
-        width: 100%;
-        max-width: 100%;
-        margin-top: 10px;
-    }
-
-    .content {
-      padding: 40px;
-      padding-top: 60px;
-      position: relative;
-      box-sizing: border-box;
-      bottom: 0;
-
-    }
-
-
-    @media (min-width: 768px) {
-      .sidebar{
-        position: sticky;
-        text-align: right;
-      }
-    }
-
-
-    /* Content CSS section */
-    .title{
-      margin-bottom: 20px;
-    }
-
-    .section{
-      padding-bottom: 30px;
-    }
-
-    .alignleft {
-      float: left;
-    }
-    .alignright {
-      float: right;
-    }
-    </style>
-  </head>
-</head>
-<body>
-{% whitespace all %}
-  <div id="app" style="padding-right: calc(100% - 100vw + 17px);">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="sidebar col-md-4">
-          <h1>Costa Huang</h1>
-          <h5>strive for interesting things</h5>
-          <div class="vertical-button-group" id="test">
-            <button type="button" class="btn btn-secondary" onclick="location.href='/';">resume</button>
-            <button type="button" class="btn btn-secondary" onclick="location.href='/research';">research</button>
-            <button type="button" class="btn btn-secondary" onclick="location.href='https://drive.google.com/open?id=0B0wkgJhWMQfgazItYXdsWk9ZUkU';">math</button>
-            <button type="button" class="btn btn-secondary" onclick="location.href='https://github.com/vwxyzjn';">github</button>
-          </div>
-        </div>
-        <div class="content col-md-6">
-          <div class="math-list">
-            <div class="article-short" v-for="article in article_info">
-              <!-- START: left align and right align at the same line -->
-                  <div id="results"></div>
-                  <script>
-                      var test = `
 
 # LSTM-RNN For Sentiment Analysis
 Author: Trilby Hren and Costa Huang
@@ -414,19 +309,19 @@ test_max_features.plot(ax = ax8,title = "test_max_features")
 
 
 
-![png]({{reverse_url("article_static", "content/research/LSTM-RNN For Sentiment Analysis/output_11_2.png")}})
+![png](output_11_2.png)
 
 
 
-![png]({{reverse_url("article_static", "content/research/LSTM-RNN For Sentiment Analysis/output_11_3.png")}})
+![png](output_11_3.png)
 
 
 
-![png]({{reverse_url("article_static", "content/research/LSTM-RNN For Sentiment Analysis/output_11_4.png")}})
+![png](output_11_4.png)
 
 
 
-![png]({{reverse_url("article_static", "content/research/LSTM-RNN For Sentiment Analysis/output_11_5.png")}})
+![png](output_11_5.png)
 
 
 ## Building New Model 
@@ -577,7 +472,7 @@ for i in range(len(tokens)):
 \`\`\`
 
 
-![png]({{reverse_url("article_static", "content/research/LSTM-RNN For Sentiment Analysis/output_16_0.png")}})
+![png](output_16_0.png)
 
 
 ## Apply Current Model to Amazon Review Data
@@ -597,7 +492,7 @@ i
 
 
 
-![png]({{reverse_url("article_static", "content/research/LSTM-RNN For Sentiment Analysis/output_18_0.png")}})
+![png](output_18_0.png)
 
 
 
@@ -913,12 +808,6 @@ Therefore by experimenting different *"maxlen"*, *"max_features"* , and optimize
 | **Amazon Review **     | 73.34%                          | 78.90%     |
 | **IMDB Movie Review ** | 82.35%                          | 88.75%     |
 
-
-
-<br/>
-<br/>
-<br/>
-
 # Reference
 
 
@@ -939,18 +828,3 @@ Therefore by experimenting different *"maxlen"*, *"max_features"* , and optimize
 [8] Olah C [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), 2015
 
 [9] Arnold T, *STAT 365/665: Data Mining and Machine Learning*, [Recurrent neural networks](http://euler.stat.yale.edu/~tba3/stat665/lectures/lec21/notebook21.html), 2016
-
-                      `
-                      document.getElementById('results').innerHTML = (marked(test));
-                  </script>
-            </div>
-          </div>
-          <!-- <resume></resume> -->
-        </div>
-      </div>
-    </div>
-  </div>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-python.js"></script>
-</body>
-</html>

@@ -37,7 +37,7 @@ if __name__ == "__main__":
 	name = "article"
 	application = tornado.web.Application([
 		(r"/", MainHandler),
-		(r"/app_static/(.*)", tornado.web.StaticFileHandler, {"path": "template"}),
+		tornado.web.URLSpec(r"/app_static/(.*)", tornado.web.StaticFileHandler, {"path": "template"}, name = "article_static"),
 		tornado.web.URLSpec(r"/research/(.*)", Research_article, name = "article"),
 		(r"/research", Research_list)
 	], **settings)
