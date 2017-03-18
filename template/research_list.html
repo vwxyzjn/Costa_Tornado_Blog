@@ -8,52 +8,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello World</title>
     <link rel="stylesheet" type="text/css" href="{{ static_url("css/bootstrap.css") }}">
-    <style type="text/css">
-      .fade-enter-active, .fade-leave-active {
-        transition: opacity .5s
-      }
-      .fade-enter, .fade-leave-active {
-        opacity: 0
-      }
+    <style>
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity .5s
+    }
+    .fade-enter, .fade-leave-active {
+      opacity: 0
+    }
 
+    .sidebar{
+      position: relative;
+      bottom: 0;
+      top: 0;
+      padding-top: 20%;
+      text-align: center;
+      padding-right: 40px;
+    }
+
+    .vertical-button-group{
+      display: inline-block;
+    }
+
+    .vertical-button-group > .btn {
+      display: block;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 10px;
+    }
+
+    .content {
+      padding: 40px;
+      padding-top: 60px;
+      position: relative;
+      box-sizing: border-box;
+      bottom: 0;
+
+    }
+
+    @media (min-width: 768px) {
       .sidebar{
-        position: relative;
-        height: 100vh;
-        bottom: 0;
-        top: 0;
-        padding-top: 20%;
-        text-align: center;
-        padding-right: 40px;
         border-right: 1px solid #333;
         border-color: rgba(0, 0, 0, 0.1);
+        height: 100vh;
+        position: sticky;
+        text-align: right;
       }
-
-      .vertical-button-group{
-        display: inline-block;
-      }
-
-      .vertical-button-group > .btn {
-        display: block;
-          width: 100%;
-          max-width: 100%;
-          margin-top: 10px;
-      }
-
-      .content {
-        padding: 40px;
-        padding-top: 60px;
-        position: relative;
-        box-sizing: border-box;
-        bottom: 0;
-
-      }
-
-      @media (min-width: 768px) {
-        .sidebar{
-          position: sticky;
-          text-align: right;
-        }
-      }
+    }
 
 
       /* Content CSS section */
