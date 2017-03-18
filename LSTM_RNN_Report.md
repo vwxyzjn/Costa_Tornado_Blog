@@ -1,102 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>ROFL</title>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello World</title>
-    <link rel="stylesheet" type="text/css" href="{{ static_url("css/bootstrap.css") }}">
-    <script src="{{ static_url("js/marked.min.js") }}"></script>
-    <style>
-    .fade-enter-active, .fade-leave-active {
-      transition: opacity .5s
-    }
-    .fade-enter, .fade-leave-active {
-      opacity: 0
-    }
-
-    .sidebar{
-      position: relative;
-      bottom: 0;
-      top: 0;
-      padding-top: 20%;
-      text-align: center;
-      padding-right: 40px;
-      border-right: 1px solid #333;
-      border-color: rgba(0, 0, 0, 0.1);
-    }
-
-    .vertical-button-group{
-      display: inline-block;
-    }
-
-    .vertical-button-group > .btn {
-      display: block;
-        width: 100%;
-        max-width: 100%;
-        margin-top: 10px;
-    }
-
-    .content {
-      padding: 40px;
-      padding-top: 60px;
-      position: relative;
-      box-sizing: border-box;
-      bottom: 0;
-
-    }
-
-
-    @media (min-width: 768px) {
-      .sidebar{
-        position: sticky;
-        text-align: right;
-      }
-    }
-
-
-    /* Content CSS section */
-    .title{
-      margin-bottom: 20px;
-    }
-
-    .section{
-      padding-bottom: 30px;
-    }
-
-    .alignleft {
-      float: left;
-    }
-    .alignright {
-      float: right;
-    }
-    </style>
-  </head>
-</head>
-<body>
-{% whitespace all %}
-  <div id="app" style="padding-right: calc(100% - 100vw + 17px);">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="sidebar col-md-4">
-          <h1>Costa Huang</h1>
-          <h5>strive for interesting things</h5>
-          <div class="vertical-button-group" id="test">
-            <button type="button" class="btn btn-secondary" onclick="location.href='/';">resume</button>
-            <button type="button" class="btn btn-secondary" onclick="location.href='/research';">research</button>
-            <button type="button" class="btn btn-secondary" onclick="location.href='https://drive.google.com/open?id=0B0wkgJhWMQfgazItYXdsWk9ZUkU';">math</button>
-            <button type="button" class="btn btn-secondary">github</button>
-          </div>
-        </div>
-        <div class="content col-md-6">
-          <div class="math-list">
-            <div class="article-short" v-for="article in article_info">
-              <!-- START: left align and right align at the same line -->
-                  <div id="results"></div>
-                  <script>
-                      var test = `
 
 # LSTM-RNN For Sentiment Analysis
 Author: Trilby Hren and Costa Huang
@@ -121,7 +22,7 @@ Source code vailable at https://github.com/costahuang/Sentiment-Analysis-LSTM
 Firstly we execute [imdb_lstm.py](https://github.com/fchollet/keras/blob/master/examples/imdb_lstm.py)[1] and yields following results where a test accuracy of 82.35% is acquired.
 
 
-\`\`\`python
+```python
 '''Trains a LSTM on the IMDB sentiment classification task.
 The dataset is actually too small for LSTM to be of any advantage
 compared to simpler, much faster methods such as TF-IDF + LogReg.
@@ -177,7 +78,7 @@ score, acc = model.evaluate(X_test, y_test,
                             batch_size=batch_size)
 print('Test score:', score)
 print('Test accuracy:', acc)
-\`\`\`
+```
 
     Using Theano backend.
     
@@ -228,7 +129,7 @@ print('Test accuracy:', acc)
      * Index actual words with *"index_from = 3*" and higher. (We think this part is **very problematic**, which is mentioned in the next code cell)
 
 
-\`\`\`python
+```python
 # From imdb.py, it has a preprocessing code like this, where they use index_from = 3 as the default parameter
 # if start_char is not None:
 #     X = [[start_char] + [w + index_from for w in x] for x in X]
@@ -236,7 +137,7 @@ index_from = 3
 example_review = [6, 499, 6, 99, 221, 9, 22, 501, 2, 3]
 example_review = [[1] + [w + index_from for w in example_review]]
 print(example_review)
-\`\`\`
+```
 
     [[1, 9, 502, 9, 102, 224, 12, 25, 504, 5, 6]]
     
@@ -279,7 +180,7 @@ Check out our [Activation functions data](https://docs.google.com/document/d/1uQ
 **_Optimizer choices_** by [keras.optimizers](https://keras.io/optimizers/)
 1. SGD (Stochastic Gradient Decent)
     1. This type of optimizer uses only a few training examples rather than the entire training set. It also can lead to fast convergence since it doesn't have to run back propagation over the full training set. 
-    1. Sometimes a meaningful order leads to a bias for the gradient and causes poor convergence. Since \`our data was randomly shuffled before each training\`, this shouldn't have been an issue.
+    1. Sometimes a meaningful order leads to a bias for the gradient and causes poor convergence. Since `our data was randomly shuffled before each training`, this shouldn't have been an issue.
         2. _Adam_
             1. Adaptive Moment Estimation
             1. This optimizer uses momentum and past gradients to help with learning by combining the two advantages of RMSprop and AdaGrad. 
@@ -311,7 +212,7 @@ Check out our [Preprocessing techniques data](https://docs.google.com/document/d
 
 
 
-\`\`\`python
+```python
 import pandas as pd
 import re
 import matplotlib.pyplot as plt
@@ -394,7 +295,7 @@ f4, (ax7, ax8) = plt.subplots(1, 2, sharey=True)
 f4.set_figwidth(15)
 train_max_features.plot(ax = ax7,title = "train_max_features")
 test_max_features.plot(ax = ax8,title = "test_max_features")
-\`\`\`
+```
 
     [0.709, 0.8402]
     [0.8205, 0.837]
@@ -408,7 +309,7 @@ test_max_features.plot(ax = ax8,title = "test_max_features")
 
 
 
-![png]({{reverse_url("article_static", "content/research/LSTM-RNN For Sentiment Analysis/output_11_2.png")}})
+![png](output_11_2.png)
 
 
 
@@ -427,7 +328,7 @@ test_max_features.plot(ax = ax8,title = "test_max_features")
 After such comparision, we decided to build model using *RMSprop* optimizer, *sigmoid* activation function, *max_features* = 3000, and *max_len*= 200.
 
 
-\`\`\`python
+```python
 from __future__ import print_function
 import numpy as np
 np.random.seed(1337)  # for reproducibility
@@ -478,7 +379,7 @@ model.compile(loss='binary_crossentropy',
 print('Train...')
 model.fit(X_train, y_train, batch_size=batch_size, nb_epoch=10,
           validation_data=(X_test, y_test))
-\`\`\`
+```
 
     Loading data...
     25000 train sequences
@@ -524,7 +425,7 @@ As we can see, our new model has a better prediction of 88.75% accuracy versus t
 Visualization of sentiment analysis ,inspired by [Taylor Arnold's jupyter notebook](http://euler.stat.yale.edu/~tba3/stat665/lectures/lec21/notebook21.html) [9]
 
 
-\`\`\`python
+```python
 %matplotlib inline
 from keras.layers.wrappers import TimeDistributed
 import pickle
@@ -568,7 +469,7 @@ plt.figure(figsize=(16, 10))
 plt.plot(y_hat2[ind],alpha=0.5)
 for i in range(len(tokens)):
     plt.text(i,0.5,tokens[i],rotation=90)
-\`\`\`
+```
 
 
 ![png](output_16_0.png)
@@ -582,11 +483,11 @@ Amazon Review Dataset has preclassified sentiment value on 6 categories: books, 
 We will split the reviews into training set and testing set by changing the file structure
 
 
-\`\`\`python
+```python
 from IPython.display import Image
 i = Image(filename='file_structure.png')
 i
-\`\`\`
+```
 
 
 
@@ -599,7 +500,7 @@ i
 **Load reviews:**
 
 
-\`\`\`python
+```python
 from six.moves import cPickle
 import numpy
 import os
@@ -633,7 +534,7 @@ for f in ff:
         input_text += [x]
         
 print(input_text[0])
-\`\`\`
+```
 
     I wish I could give this book four and a half stars instead of four; I can't quite justify five stars in my mind.  Two of the stories were definitely good: the first, "masked Riders" by Parhelion, and the third, "Ricochet" by BA Tortuga.  I enjoyed both, but was not particularly snowed by the intensity of the conflict/plot line or the main characters and their relationships.  Not so the second story: "Hung Up" by Cat Kane was a powerful, intense and moving story about two delightful yet flawed characters who had secrets that tore their relationship up until they were able to work their ways (separately) around the issues.  That story deserved a five stars plus rating and I wish Kane would turn it into a full length novel and develop the characters and their backgrounds more.  This book is an excellent read both for the plot line and the erotic substance.  Enjoy
     
@@ -641,7 +542,7 @@ print(input_text[0])
 **Tokenize reviews:**
 
 
-\`\`\`python
+```python
 input_text  = []
 for f in ff:
     with open(f, 'rb') as fin:
@@ -660,7 +561,7 @@ y_test  = input_label[cut_index:]
 
 print("As you can see, the first review has been encoded as their word index:")
 print(X_train[0][:10])
-\`\`\`
+```
 
     As you can see, the first review has been encoded as their word index:
     [6, 499, 6, 99, 221, 9, 22, 501, 2, 3]
@@ -669,7 +570,7 @@ print(X_train[0][:10])
 **Reconstruct reviews:**
 
 
-\`\`\`python
+```python
 words = {k:v for v,k in tok.word_index.items()}
 def reconstruct_text(index, words):
     text = []
@@ -682,7 +583,7 @@ def reconstruct_text(index, words):
     
 print(input_text[100])
 print(reconstruct_text(X_train[100], words))
-\`\`\`
+```
 
     Peck relates growing up in rural/small town Vermont with a best friend who gets him into lots of trouble. Humor and pranks abound in between lessons learned
     ['peck', 'relates', 'growing', 'up', 'in', 'rural', 'small', 'town', 'vermont', 'with', 'a', 'best', 'friend', 'who', 'gets', 'him', 'into', 'lots', 'of', 'trouble', 'humor', 'and', 'pranks', 'abound', 'in', 'between', 'lessons', 'learned']
@@ -691,20 +592,20 @@ print(reconstruct_text(X_train[100], words))
 **Store reviews: **
 
 
-\`\`\`python
+```python
 f = open('amzn_full.pkl', 'wb')
 train_tuple = (X_train, y_train)
 test_tuple = (X_test, y_test)
 combine = (train_tuple, test_tuple)
 cPickle.dump(combine, f)
 f.close()
-\`\`\`
+```
 
 ### 3. Apply Current Model to Amazon Reviews:
 Firstly we need to make a copy of [imdb.py](https://github.com/fchollet/keras/blob/master/keras/datasets/imdb.py)(the script that loads imdb_full.pkl data) and make it loads our amzn_full.pkl instead. Name the new file amzn.py. Then we apply our model:
 
 
-\`\`\`python
+```python
 from __future__ import print_function
 import numpy as np
 np.random.seed(1337)  # for reproducibility
@@ -753,7 +654,7 @@ model.compile(loss='binary_crossentropy',
 print('Train...')
 model.fit(X_train, y_train, batch_size=batch_size, nb_epoch=10,
           validation_data=(X_test, y_test))
-\`\`\`
+```
 
     Loading data...
     5957 train sequences
@@ -796,7 +697,7 @@ model.fit(X_train, y_train, batch_size=batch_size, nb_epoch=10,
 ## Compare Result to Original Model
 
 
-\`\`\`python
+```python
 from __future__ import print_function
 import numpy as np
 np.random.seed(1337)  # for reproducibility
@@ -838,7 +739,7 @@ model.compile(loss='binary_crossentropy',
 print('Train...')
 model.fit(X_train, y_train, batch_size=batch_size, nb_epoch=10,
           validation_data=(X_test, y_test))
-\`\`\`
+```
 
     Loading data...
     5957 train sequences
@@ -879,12 +780,12 @@ model.fit(X_train, y_train, batch_size=batch_size, nb_epoch=10,
 
 
 
-\`\`\`python
+```python
 %%html
 <style>
 table {float:left}
 </style>
-\`\`\`
+```
 
 
 <style>
@@ -927,16 +828,3 @@ Therefore by experimenting different *"maxlen"*, *"max_features"* , and optimize
 [8] Olah C [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), 2015
 
 [9] Arnold T, *STAT 365/665: Data Mining and Machine Learning*, [Recurrent neural networks](http://euler.stat.yale.edu/~tba3/stat665/lectures/lec21/notebook21.html), 2016
-
-                      `
-                      document.getElementById('results').innerHTML = (marked(test));
-                  </script>
-            </div>
-          </div>
-          <!-- <resume></resume> -->
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
